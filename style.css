@@ -52,9 +52,6 @@ a {
 a:hover {
   color: #ffa600;
 }
-#weather-description:hover {
-  border: 3px solid #7189cf;
-}
 h4 {
   font-weight: lighter;
   margin-bottom: 40px;
