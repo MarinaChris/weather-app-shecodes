@@ -30,11 +30,15 @@ input {
 #geolocation:hover {
   border: 3px solid #3752a3;
 }
+#icon {
+  width: 120px;
+  height: 120px;
+}
 .units {
   font-weight: lighter;
   font-size: 30px;
   position: relative;
-  top: -20px;
+  top: -18px;
 }
 h1 {
   font-weight: bolder;
@@ -60,7 +64,7 @@ a:hover {
 h4 {
   font-weight: lighter;
   margin-bottom: 40px;
-  margin-left: 20px;
+  margin-left: 50px;
   color: #fff;
 }
 #temperature {
