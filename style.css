@@ -1,15 +1,14 @@
 body {
-  max-width: 60%;
   display: block;
   margin: 0 auto;
-  margin-top: 30px;
 }
 .container {
   border: 3px solid #555964;
   border-radius: 5px;
-  width: 95%;
+  max-width: 800px;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  padding: 0 50px;
+  padding: 0 60px;
+  margin-top: 40px;
 }
 input {
   margin-top: 40px;
@@ -30,6 +29,12 @@ input {
 }
 #geolocation:hover {
   border: 3px solid #3752a3;
+}
+.units {
+  font-weight: lighter;
+  font-size: 30px;
+  position: relative;
+  top: -20px;
 }
 h1 {
   font-weight: bolder;
@@ -58,6 +63,9 @@ h4 {
   margin-left: 20px;
   color: #fff;
 }
+#temperature {
+  font-size: 55px;
+}
 li {
   list-style: none;
   font-size: larger;
@@ -80,4 +88,7 @@ li {
 }
 .predictions i {
   color: #ffa600;
+}
+#signature {
+  color: aliceblue;
 }
