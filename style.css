@@ -56,10 +56,10 @@ h2 {
 }
 a {
   text-decoration: none;
-  color: #fff;
+  color: #ffa600;
 }
 a:hover {
-  color: #ffa600;
+  color: #fff;
 }
 h4 {
   font-weight: lighter;
@@ -95,4 +95,7 @@ li {
 }
 #signature {
   color: aliceblue;
+}
+.active {
+  color: #fff;
 }

@@ -18,11 +18,14 @@ date.innerHTML = day+" "+dateNumber+" "+month+", "+hour+":"+minute;
 
 function showTemperature (response) {
 document.querySelector("#city").innerHTML = response.data.name;
-document.querySelector ("#temperature").innerHTML = Math.round(response.data.main.temp);
+
+let temperature = document.querySelector ("#temperature");
+celsiusTemp = response.data.main.temp;
+temperature.innerHTML = Math.round(celsiusTemp);
 document.querySelector ("#weather-description").innerHTML = response.data.weather[0].main;
 document.querySelector ("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector ("#wind").innerHTML = Math.round(response.data.wind.speed);
-document.querySelector ("#icon").setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+document.querySelector ("#icon").setAttribute ("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector ("#icon").setAttribute ("alt", response.data.weather[0].description);
 }
 
@@ -41,7 +44,28 @@ searchCity(city)
 let form = document.querySelector ("#search-form");
 form.addEventListener("submit", showCity);
 
-searchCity ("Athens");
+function showFahrenheitTemp (event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9/5) + 32;
+  document.querySelector ("#temperature").innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusTemp (event) {
+  event.preventDefault();
+   celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  document.querySelector ("#temperature").innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = "null";
+
+let fahrenheitLink = document.querySelector ("#fahrenheit-link");
+fahrenheitLink.addEventListener ("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector ("#celsius-link");
+celsiusLink.addEventListener ("click", showCelsiusTemp);
 
 function findLocation (position) {
 let apiKey = '1460a2c676633b20484f0b2ee12b8cc6';
@@ -56,3 +80,5 @@ navigator.geolocation.getCurrentPosition(findLocation)
 
 let currentLocation = document.querySelector("#geolocation");
 currentLocation.addEventListener("click", getCurrentPosition);
+
+searchCity ("Athens");
