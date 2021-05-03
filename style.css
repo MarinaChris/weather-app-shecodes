@@ -56,10 +56,10 @@ h2 {
 }
 a {
   text-decoration: none;
-  color: #ffa600;
+  color: #fff;
 }
 a:hover {
-  color: #fff;
+  color: #ffa600;
 }
 h4 {
   font-weight: lighter;
@@ -97,5 +97,5 @@ li {
   color: aliceblue;
 }
 .active {
-  color: #fff;
+  color: #ffa600;
 }
