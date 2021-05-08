@@ -36,7 +36,7 @@ input {
   margin-left: -25px;
 }
 .units {
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 30px;
   position: relative;
   top: -18px;

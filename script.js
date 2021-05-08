@@ -30,7 +30,7 @@ function showForecast (response) {
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function(forecastDay, index) {
-    if (index < 6){
+    if (index > 0 && index < 7){
       forecastHTML= forecastHTML + `
     <div class="col-2">
         <div class="predictions-date">
@@ -55,8 +55,17 @@ function showTemperature (response) {
 document.querySelector("#city").innerHTML = response.data.name;
 
 let temperature = document.querySelector ("#temperature");
-celsiusTemp = response.data.main.temp;
+let celsiusTemp = response.data.main.temp;
 temperature.innerHTML = Math.round(celsiusTemp);
+
+let maxTemperature = document.querySelector ("#max");
+let celsiusMaxTemp = response.data.main.temp_max;
+maxTemperature.innerHTML = Math.round(celsiusMaxTemp);
+
+let minTemperature = document.querySelector ("#min");
+let celsiusMinTemp = response.data.main.temp_min;
+minTemperature.innerHTML = Math.round(celsiusMinTemp);
+
 document.querySelector ("#weather-description").innerHTML = response.data.weather[0].main;
 document.querySelector ("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector ("#wind").innerHTML = Math.round(response.data.wind.speed);
@@ -86,29 +95,6 @@ searchCity(city)
 
 let form = document.querySelector ("#search-form");
 form.addEventListener("submit", showCity);
-
-function showFahrenheitTemp (event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celsiusTemp * 9/5) + 32;
-  document.querySelector ("#temperature").innerHTML = Math.round(fahrenheitTemp);
-}
-
-function showCelsiusTemp (event) {
-  event.preventDefault();
-   celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  document.querySelector ("#temperature").innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusTemp = "null";
-
-let fahrenheitLink = document.querySelector ("#fahrenheit-link");
-fahrenheitLink.addEventListener ("click", showFahrenheitTemp);
-
-let celsiusLink = document.querySelector ("#celsius-link");
-celsiusLink.addEventListener ("click", showCelsiusTemp);
 
 function findLocation (position) {
 let apiKey = '1460a2c676633b20484f0b2ee12b8cc6';
