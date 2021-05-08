@@ -63,8 +63,9 @@ a:hover {
 }
 h4 {
   font-weight: lighter;
+  margin-top: -30px;
   margin-bottom: 40px;
-  margin-left: 50px;
+  margin-left: 155px;
   color: #fff;
 }
 #temperature {
@@ -78,20 +79,25 @@ li {
   text-align: right;
   margin-right: 20px;
 }
+
 .predictions {
   border: 3px solid #c48512;
-  max-width: 95%;
+  max-width: 90%;
   border-radius: 5px;
   color: #fff;
   display: block;
   margin: 0 auto;
   margin-bottom: 30px;
-  padding: 10px 0 10px 30px;
+  padding: 10px 0 10px 60px;
   text-align: center;
   font-size: large;
+  font-weight: bold;
 }
-.predictions i {
-  color: #ffa600;
+.predictions-temp {
+  margin-top: -20px;
+}
+.predictions-temp-min {
+  opacity: 0.7;
 }
 #signature {
   color: aliceblue;

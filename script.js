@@ -19,6 +19,35 @@ date.innerHTML = day+" "+dateNumber+" "+month+", "+hour+":"+minute;
 function showTemperature (response) {
 document.querySelector("#city").innerHTML = response.data.name;
 
+function showForecast () {
+  let forecastElement = document.querySelector("#forecast");
+
+let forecastHTML = `<div class="row">`;
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'];
+  days.forEach(function(day) {
+    forecastHTML= forecastHTML + `
+    <div class="col-2">
+        <div class="predictions-date">
+            ${day}
+        </div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon"/>
+            <div class="predictions-temp">
+                  <span class="predictions-temp-max">
+                       18°
+                  </span>| 
+                  <span class="predictions-temp-min">
+                         12°
+                  </span>
+              </div>
+      </div>`;
+  });
+  
+     forecastHTML= forecastHTML + `</div>`;
+      forecastElement.innerHTML = forecastHTML;
+}
+
+showForecast ();
+
 let temperature = document.querySelector ("#temperature");
 celsiusTemp = response.data.main.temp;
 temperature.innerHTML = Math.round(celsiusTemp);
